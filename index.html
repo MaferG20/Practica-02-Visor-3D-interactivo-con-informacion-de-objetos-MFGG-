@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Visor 3D interactivo con informacion de objetos</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Visor 3D interactivo con información de objetos</h1>
+        <p> Maria Fernanda Guerrero Gutierrez </p>
+            Explora, selecciona y consulta información de los objetos :)</p>
+    </header>
+
+    <main>
+
+        <!-- CONTROLES -->
+        <section id="controles"> 
+
+            <h2>Controles de la escena</h2>
+
+            <button id="btnAnimacion">
+                Detener Animacion
+            </button>
+
+            <button id="btnColor">
+                Cambiar color del cubo
+            </button>
+
+            <button id="btnModelo">
+                Ocultar modelo
+            </button>
+
+            <button id="btnCamara">
+                Reiniciar camara
+            </button>
+
+            <label>
+                Intensidad de luz:
+                <input
+                    type="range"
+                    id="intensidadLuz"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    value="3"
+                >
+            </label>
+
+        </section>
+
+
+        <!-- VISOR 3D -->
+        <section id="visor">
+
+            <!-- PANEL DE INFORMACIÓN -->
+            <div id="informacion">
+
+                <h2>Información del objeto</h2>
+
+                <p>
+                    <strong>Nombre:</strong>
+                    <span id="nombreObjeto">
+                        Ningun objeto seleccionado :(
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Tipo:</strong>
+                    <span id="tipoObjeto">
+                        -
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Descripción:</strong>
+                    <span id="descripcionObjeto">
+                        Haz clic sobre un objeto.
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Dato adicional:</strong>
+                    <span id="datoObjeto">
+                        -
+                    </span>
+                </p>
+
+            </div>
+
+            <!-- AQUÍ APARECE THREE.JS -->
+            <div id="contenedor3D"></div>
+
+        </section>
+
+
+        <!-- EXPLICACIÓN -->
+        <section id="explicacion">
+
+            <h2>Funcionamiento del visor</h2>
+
+            <div class="pregunta">
+
+                <h3>¿Que tema representa tu visor 3D?</h3>
+
+                <p>
+                    El proyecto representa un visor 3D educativo e interactivo.
+                    Permite explorar diferentes objetos tridimensionales y consultar
+                    informacion sobre cada uno de ellos.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <h3>¿Que objetos agregaste a la escena?</h3>
+
+                <p>
+                    Se agregaron un cubo, una esfera, un cilindro, un cono,
+                    un toroide y un modelo externo en formato GLB.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <h3>¿Que información aparece cuando seleccionas un objeto?</h3>
+
+                <p>
+                    El panel muestra el nombre del objeto, su tipo, una descripcion
+                    y un dato adicional relacionado con su funcion o caracteristica.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <h3>¿Como implementaste el raycasting?</h3>
+
+                <p>
+                    Se utilizo la clase Raycaster de Three.js. Al hacer clic,
+                    se calcula la posicion del mouse sobre el canvas y se lanza
+                    un rayo desde la camara para detectar los objetos intersectados.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <h3>¿Que controles agregaste para modificar la escena?</h3>
+
+                <p>
+                    Se agregaron controles para detener o activar la animacion,
+                    cambiar el color del cubo, ocultar o mostrar el modelo,
+                    modificar la intensidad de la luz y reiniciar la camara.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <h3>¿Que modelo .glb o .gltf utilizaste?</h3>
+
+                <p>
+                    Se utilizó un modelo externo en formato GLB almacenado
+                    dentro de la carpeta models con el nombre modelo.glb.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <h3>¿Que parte del proyecto fue la mas difcil?</h3>
+
+                <p>
+                    La parte mas dificil fue implementar correctamente el raycasting
+                    y la carga del modelo GLB, especialmente las rutas de los archivos
+                    y la interaccion entre el mouse y los objetos 3D.
+                </p>
+
+            </div>
+
+
+            <div class="pregunta">
+
+                <h3>
+                    ¿Como podrias mejorar este visor si lo conectaras despues
+                    con PHP, FlightPHP y SQLite?
+                </h3>
+
+                <p>
+                    Se podria guardar la informacion de los objetos en una base de
+                    datos SQLite y utilizar PHP y FlightPHP para crear una API.
+                    De esta manera, el visor podria consultar dinamicamente los datos
+                    de cada objeto desde el servidor.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Practica 2 -Visor 3D interactivo con informacion de objetos
+        </p>
+
+    </footer>
+
+
+    <!-- THREE.JS -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module" src="main.js"></script>
+
+</body>
+
+</html>
